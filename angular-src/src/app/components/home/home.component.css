@@ -1,0 +1,16 @@
+div.view overlay{
+  position:sticky;
+}
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 75%;
+  color: aliceblue;
+  transform: translate(-50%, -50%);
+}
+
+
+.btn :hover{
+  background-color: white;
+  opacity: 1;
+}
