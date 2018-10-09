@@ -1,6 +1,58 @@
-<br><br>
-<div *ngIf="userlist">
+<br><br><br><br>
 
-  <div style="margin-top: 500px;" *ngFor="let x of userlist">
-{{x.First_name}}
-</div></div>
+<div *ngIf="userlist">
+    <div *ngFor="let x of userlist">
+<div  class="card mb-3 text-center ">
+    <div class="card-body">
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-4 offset-md-1 mx-3 my-3">
+                <!--Featured image-->
+                <div class="view zoom">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" class="img-fluid" alt="Sample image for first version of blog listing">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+           
+            <div class="col-md-7 text-left ml-3 mt-3">
+                <!--Excerpt-->
+                <a href="" class="black-text" >   <h2>Hi, I'm </h2></a>
+                <a href="" class="black-text" style="font-weight: bold;font-family: sans-serif; font-size: 900px;">
+                   <h2 class="font-bold pb-1"> {{x.First_name}}&nbsp;{{x.Last_name}}</h2>
+                </a>
+                <hr>
+                <button type="button" class="btn btn-outline-black waves-effect">Hire Me Now </button>
+              
+                
+                
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+</div>
+<!--News card-->
+<br><br><br><br>
+<div class="row" style="margin-left: 40px;">
+<div class="col-md-4">
+
+<h3>About Me</h3>
+<p>{{x.Job_description}}</p>
+<h3><i class="fa fa-map-marker"></i>&nbsp; Location</h3>
+<p>{{x.City}},&nbsp; {{x.Street}}</p>
+
+<h3>My Skills</h3>
+<p>{{x.Skill}}</p>
+</div>
+<div class="col-md-6">
+        hfdkg
+        
+        </div>
+</div></div></div>
