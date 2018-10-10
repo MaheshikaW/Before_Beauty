@@ -1,28 +1,36 @@
-<div class="jumbotron" style="margin-top: 80px;">
- <!-- Search form -->
- <div>
- <form class="form-inline" (submit)="Search()" >
-<input class="form-control"  [(ngModel)]="skill" (click)="toggleDropDown()" name="skill" type="text" placeholder="Enter specialized area.." aria-label="Search" style="width: 500px;margin-left: 100px;border-radius: 15px;"><br><br>
-<div  class="state-container-dropdown">
-  <div *ngIf="Show"><div *ngFor="let x of skilllist" class="state">
-      {{x.Skill}}
-    </div>
-      </div>
+<div class="jumbotron" style="margin-top: 60px;height: 300px;">
+  <!-- Search form -->
+  <div>
+    <form class="form-inline" (submit)="Search()">
+      <input class="form-control" [(ngModel)]="skill" (click)="toggleDropDown()" name="skill" type="text" placeholder="Enter specialized area.."
+        aria-label="Search" style="width: 500px;margin-left: 100px;border-radius: 15px;">
+      <br>
+      <br>
+      <div class="state-container-dropdown">
+        <div *ngIf="Show">
+          <div *ngFor="let x of skilllist" class="state">
+            {{x.Skill}}
+          </div>
+        </div>
 
-  
-</div>
-<input type="submit" style="border-radius:10px; " class="btn btn-danger" value="search"></form>
-</div><br><br>
-<a style="margin-left: 100px;font-weight: bold;">+ More options</a><br>
-<div>
-<form class="form-inline">
- 
-<input class="form-control" type="text" placeholder="Enter location.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
-<input class="form-control" type="text" placeholder="Enter price rate.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
-<input class="form-control" type="text" placeholder="Enter rated area.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
-<button type="button" class="btn btn-danger btn-rounded" style="border-radius: 10px;">search</button>
-</form>
-</div>
+
+      </div>
+      <input type="submit" style="border-radius:10px; " class="btn btn-danger" value="search">
+    </form>
+  </div>
+  <br>
+  <br>
+  <a style="margin-left: 100px;font-weight: bold;">+ More options</a>
+  <br>
+  <div>
+    <form class="form-inline">
+
+      <input class="form-control" type="text" placeholder="Enter location.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
+      <input class="form-control" type="text" placeholder="Enter price rate.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
+      <input class="form-control" type="text" placeholder="Enter rated area.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
+      <button type="button" class="btn btn-danger btn-rounded" style="border-radius: 10px;">search</button>
+    </form>
+  </div>
 
 
 
@@ -31,112 +39,124 @@
 
 </div>
 <div class="col-md-12">
-<div  *ngIf="userlist">
-  
-<div class="card card-cascade narrower col-md-4" style="width: 400px;border-radius: 10px; margin-left: 40px;display:inline-block; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" *ngFor="let x of userlist" >
+  <div *ngIf="userlist">
 
-  <!-- Card image -->
-  <div class="view zoom">
-    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg" style="width: 300px;height:200px;  margin-left: 20px;" class="img-fluid" alt="">
- </div>
+    <div class="card card-cascade narrower col-md-4" style="width: 400px;border-radius: 10px; margin-left: 40px;display:inline-block; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+      *ngFor="let x of userlist">
 
-  <!-- Card content -->
-  <div class="card-body card-body-cascade">
-
-    <!-- Label -->
-    <a class="pink-text pb-2 pt-1"><i class="fa fa-user"></i> {{x.First_name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a class="black-text pb-4 pt-1">{{x.City}}</a>
-
-  <div *ngIf="x.Rating ==1">
-    <i class="fa fa-star" ></i>
-    <i class="fa fa-star-o" ></i>
-    <i class="fa fa-star-o" ></i>
-    <i class="fa fa-star-o" ></i>
-    <i class="fa fa-star-o" ></i>
-    </div>
-
-
-    
-  <div *ngIf="x.Rating ==1.5">
-    <i class="fa fa-star" ></i>
-    <i class="fa fa-star-half-o"></i>
-    <i class="fa fa-star-o" ></i>
-    <i class="fa fa-star-o" ></i>
-    <i class="fa fa-star-o" ></i>
-  </div>
-
-
-    <div *ngIf="x.Rating ==2">
-      <i class="fa fa-star" ></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star-o" ></i>
-      <i class="fa fa-star-o" ></i>
-      <i class="fa fa-star-o" ></i></div>
-
-
-
-
-      <div *ngIf="x.Rating ==2.5">
-        <i class="fa fa-star" ></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
-        <i class="fa fa-star-o" ></i>
-        <i class="fa fa-star-o" ></i>
-      
+      <!-- Card image -->
+      <div class="view zoom">
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg" style="width: 300px;height:200px;  margin-left: 20px;"
+          class="img-fluid" alt="">
       </div>
 
+      <!-- Card content -->
+      <div class="card-body card-body-cascade">
+
+        <!-- Label -->
+        <a class="pink-text pb-2 pt-1">
+          <i class="fa fa-user"></i> {{x.First_name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="black-text pb-4 pt-1">{{x.City}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="blue-text pb-2 pt-1">
+         {{x.skills[0].Skill}}</a>
+
+        <div *ngIf="x.Rating ==1">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+
+
+
+        <div *ngIf="x.Rating ==1.5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+
+
+        <div *ngIf="x.Rating ==2">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+
+
+
+
+        <div *ngIf="x.Rating ==2.5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+
+        </div>
+
         <div *ngIf="x.Rating ==3">
-          <i class="fa fa-star" ></i>
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
-          <i class="fa fa-star-o" ></i>
-          <i class="fa fa-star-o" ></i></div>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
 
 
-          <div *ngIf="x.Rating ==3.5">
-            <i class="fa fa-star" ></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i></div>
+        <div *ngIf="x.Rating ==3.5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+        </div>
 
-            <div *ngIf="x.Rating ==4">
-              <i class="fa fa-star" ></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o" ></i></div>
+        <div *ngIf="x.Rating ==4">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
 
-              <div *ngIf="x.Rating ==4.5">
-                <i class="fa fa-star" ></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i></div>
-            
-                <div *ngIf="x.Rating ==5">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i></div>
+        <div *ngIf="x.Rating ==4.5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+        </div>
+
+        <div *ngIf="x.Rating ==5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
 
 
 
 
+        <!-- Text -->
+
+        <p class="card-text">{{x.Job_description}}</p>
 
 
-    <!-- Text -->
-    
-    <p class="card-text">{{x.Job_description}}</p>
-   
-      
-      
-  
-    <!-- Button -->
-    
-    <a class="btn btn-success btn-sm" style="margin-left: 2px;">Hire Me</a>&nbsp;&nbsp;&nbsp;
-    <a class="red-text " style="text-decoration: underline" (click)="onShowProfile(x.Hairstylist_profile_id)">Details</a>
 
-  
 
-</div></div></div></div>
+        <!-- Button -->
+
+        <a class="btn btn-success btn-sm" style="margin-left: 2px;">Hire Me</a>&nbsp;&nbsp;&nbsp;
+        <a class="red-text " style="text-decoration: underline" (click)="onShowProfile(x.Hairstylist_profile_id)">Details</a>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

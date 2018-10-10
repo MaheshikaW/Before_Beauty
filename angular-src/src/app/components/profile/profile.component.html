@@ -1,58 +1,202 @@
-<br><br><br><br>
+<br>
+<br>
+
 
 <div *ngIf="userlist">
     <div *ngFor="let x of userlist">
-<div  class="card mb-3 text-center ">
-    <div class="card-body">
-        <!--Grid row-->
+        <div class="card mb-3 text-center ">
+            <div class="card-body">
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-4 offset-md-1 mx-3 my-3">
+                        <!--Featured image-->
+                        <div class="view  overlay">
+                            <img src="{{x.image_path}}" alt="avatar mx-auto white" class="rounded-circle img-fluid">
+
+
+                        </div>
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+
+                    <div class="col-md-7 text-left ml-3 mt-3">
+                        <!--Excerpt-->
+                        <a href="" class="black-text">
+                            <h2>Hi, I'm </h2>
+                        </a>
+                        <a href="" class="black-text" style="font-weight: bold;font-family: sans-serif; font-size: 900px;">
+                            <h2 class="font-bold pb-1"> {{x.First_name}}&nbsp;{{x.Last_name}}</h2>
+
+                        </a>
+                        <div class="view zoom">
+                            <div *ngIf="x.Rating ==1">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+
+
+
+                            <div *ngIf="x.Rating ==1.5">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+
+
+                            <div *ngIf="x.Rating ==2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+
+
+
+
+                            <div *ngIf="x.Rating ==2.5">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+
+                            </div>
+
+                            <div *ngIf="x.Rating ==3">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+
+
+                            <div *ngIf="x.Rating ==3.5">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+
+                            <div *ngIf="x.Rating ==4">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+
+                            <div *ngIf="x.Rating ==4.5">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+
+                            <div *ngIf="x.Rating ==5">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <hr>
+                        <button type="button" class="btn btn-outline-black waves-effect">Hire Me Now </button>
+
+
+
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+        </div>
+        <!--News card-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row" style="margin-left: 40px;">
+            <div class="col-md-4">
+
+                <h3>About Me</h3>
+                <p>{{x.Job_description}}</p>
+                <h3>
+                    <i class="fa fa-map-marker"></i>&nbsp; Location</h3>
+                <p>{{x.City}},&nbsp; {{x.Street}}</p>
+
+                <h3>My Skills</h3>
+                <div *ngFor="let skill of x.skills;let i=index">
+
+                    {{x.skills[i].Skill}}</div>
+            </div>
+            <div class="col-md-2" style="margin-left: 70px;">
+                <h3>My Experience</h3>
+                <p>{{x.Experience}}</p>
+
+                <h3>My Price Per Hour</h3>
+                <p>{{x.Price}}&nbsp;$</p>
+                <h3>Contact Me</h3>
+                <p>658467</p>
+            </div>
+            <div class="col-md-4"><h3>My Calender</h3></div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+
+    <div class="row" style="margin-left: 60px;margin-bottom: 5%;">
+
+
         <div class="row">
 
-            <!--Grid column-->
-            <div class="col-md-4 offset-md-1 mx-3 my-3">
-                <!--Featured image-->
-                <div class="view zoom">
-                    <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" class="img-fluid" alt="Sample image for first version of blog listing">
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-           
-            <div class="col-md-7 text-left ml-3 mt-3">
-                <!--Excerpt-->
-                <a href="" class="black-text" >   <h2>Hi, I'm </h2></a>
-                <a href="" class="black-text" style="font-weight: bold;font-family: sans-serif; font-size: 900px;">
-                   <h2 class="font-bold pb-1"> {{x.First_name}}&nbsp;{{x.Last_name}}</h2>
-                </a>
+            <div *ngIf="photolist" class="col-md-12" style="border-style: outset;">
+                <h3 class="#fce4ec pink lighten-5 black-text" style="text-align: center;">Protfolio</h3>
                 <hr>
-                <button type="button" class="btn btn-outline-black waves-effect">Hire Me Now </button>
-              
-                
-                
+                <br>
+                <br>
+                <div id="mdb-lightbox-ui"></div>
+
+                <div class="mdb-lightbox no-margin">
+
+                    <figure class="col-md-4 " *ngFor="let photo of photolist" style="display: inline-block;margin-top: 40px;">
+                        <div class="view zoom">
+                            <a class="black-text" data-size="1600x1067">
+                                <img alt="picture" src="{{photo.Photo_path}}" class="img-fluid" style="width: 300px;height: 400px;">
+
+                            </a>
+                        </div>
+                    </figure>
+
+
+
+
+
+                </div>
+
             </div>
-            <!--Grid column-->
         </div>
-        <!--Grid row-->
+
+
+
+
+
+
+
     </div>
 </div>
-<!--News card-->
-<br><br><br><br>
-<div class="row" style="margin-left: 40px;">
-<div class="col-md-4">
-
-<h3>About Me</h3>
-<p>{{x.Job_description}}</p>
-<h3><i class="fa fa-map-marker"></i>&nbsp; Location</h3>
-<p>{{x.City}},&nbsp; {{x.Street}}</p>
-
-<h3>My Skills</h3>
-<p>{{x.Skill}}</p>
-</div>
-<div class="col-md-6">
-        hfdkg
-        
-        </div>
-</div></div></div>

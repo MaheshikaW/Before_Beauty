@@ -13,24 +13,25 @@ const port = 3000;
 app.use(cors());
 
 
-app.use(bodyParser.json());   
+app.use(bodyParser.json());
 
 const db = mysql.createConnection(dbconfig);
-db.connect((err)=>{
-  if(err)
-    throw err;
+db.connect((err) => {
+    if (err)
+        throw err;
     console.log('mysql connected..!');
 });
 
-const users = require('./routes/users'); 
-app.use('/users',users);
+const users = require('./routes/users');
+app.use('/users', users);
+
+const profiles= require('./routes/profiles');
+app.use('/profiles', profiles);
 
 
 
 
-
-
-app.listen(port,()=>{
+app.listen(port, () => {
     console.log('server started');
 })
 
