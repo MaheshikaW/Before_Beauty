@@ -13,6 +13,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrimarysearchComponent } from './components/primarysearch/primarysearch.component';
 
+import { FullCalendarModule } from 'ng-fullcalendar';
+ 
 
 
 
@@ -23,6 +25,7 @@ const appRoutes:Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'profile/:id',component:ProfileComponent},
   {path:'primarysearch/:skill',component:PrimarysearchComponent},
+
  
 
   
@@ -40,12 +43,14 @@ const appRoutes:Routes = [
     ProfileComponent,
     PrimarysearchComponent,
 
+
   
 
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FullCalendarModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,

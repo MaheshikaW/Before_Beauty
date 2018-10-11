@@ -38,7 +38,7 @@
 
 
 </div>
-<div class="col-md-12">
+<div class="col-md-12 result">
   <div *ngIf="userlist">
 
     <div class="card card-cascade narrower col-md-4" style="width: 400px;border-radius: 10px; margin-left: 40px;display:inline-block; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
@@ -46,7 +46,7 @@
 
       <!-- Card image -->
       <div class="view zoom">
-        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg" style="width: 300px;height:200px;  margin-left: 20px;"
+        <img src="{{x.image_path}}" style="width: 250px;height:200px;  margin-left: 20px;"
           class="img-fluid" alt="">
       </div>
 
@@ -54,11 +54,11 @@
       <div class="card-body card-body-cascade">
 
         <!-- Label -->
-        <a class="pink-text pb-2 pt-1">
+        <a class="pink-text pb-2 pt-1" href="">
           <i class="fa fa-user"></i> {{x.First_name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a class="black-text pb-4 pt-1">{{x.City}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="blue-text pb-2 pt-1">
-         {{x.skills[0].Skill}}</a>
+        <a class="blue-text pb-2 pt-1"  style="margin-left: 100px;">
+          {{x.skills[0].Skill}}</a>
 
         <div *ngIf="x.Rating ==1">
           <i class="fa fa-star"></i>
@@ -151,7 +151,7 @@
 
         <!-- Button -->
 
-        <a class="btn btn-success btn-sm" style="margin-left: 2px;">Hire Me</a>&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-success btn-sm" style="margin-left: 2px;">Hire Me</a>&nbsp;&nbsp;&nbsp;&nbsp;
         <a class="red-text " style="text-decoration: underline" (click)="onShowProfile(x.Hairstylist_profile_id)">Details</a>
 
 
@@ -159,4 +159,5 @@
       </div>
     </div>
   </div>
+  
 </div>

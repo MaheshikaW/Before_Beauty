@@ -16,4 +16,20 @@ router.post('/getphotogallery/:id', (req, res, next) => {
     });
 })
 
+
+
+
+router.post('/getskills/:id', (req, res, next) => {
+    const id = req.params.id;
+    Profile.Skill(id, (err,skilllist) => {
+        if (err) {
+            res.json({ success: false, msg: 'Failed to make get request' });
+        } else {
+            console.log(skilllist);
+            res.json({ success: true, skilllist: skilllist });
+        }
+    });
+})
+
+
 module.exports = router;

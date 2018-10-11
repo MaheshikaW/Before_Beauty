@@ -1,39 +1,46 @@
 <div class="jumbotron" style="margin-top: 80px;">
   <!-- Search form -->
   <div>
-  <form class="form-inline" (submit)="Search()" >
- <input class="form-control"  [(ngModel)]="skill" name="skill" type="text" placeholder="Enter specialized area.." aria-label="Search" style="width: 500px;margin-left: 100px;border-radius: 15px;"><br><br>
- <div  class="state-container-dropdown">
-   
- 
-   
- </div>
- <input type="submit" style="border-radius:10px; " class="btn btn-danger" value="search"></form>
- </div><br><br>
- <a style="margin-left: 100px;font-weight: bold;">+ More options</a><br>
- <div>
- <form class="form-inline">
-  
- <input class="form-control" type="text" placeholder="Enter location.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
- <input class="form-control" type="text" placeholder="Enter price rate.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
- <input class="form-control" type="text" placeholder="Enter rated area.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
- <button type="button" class="btn btn-danger btn-rounded" style="border-radius: 10px;">search</button>
- </form>
- </div>
- 
- 
- 
- 
- 
- 
- </div>
- 
+    <form class="form-inline" (submit)="Search()">
+      <input class="form-control" [(ngModel)]="skill" name="skill" type="text" placeholder="Enter specialized area.." aria-label="Search"
+        style="width: 500px;margin-left: 100px;border-radius: 15px;">
+      <br>
+      <br>
+      <div class="state-container-dropdown">
 
- <br><br>
-<div *ngIf="userlist">
 
-   hfdsf
+
+      </div>
+      <input type="submit" style="border-radius:10px; " class="btn btn-danger" value="search">
+    </form>
+  </div>
+  <br>
+  <br>
+  <a style="margin-left: 100px;font-weight: bold;">+ More options</a>
+  <br>
+  <div>
+    <form class="form-inline" >
+
+      <input  class="form-control" click="SearchOnLocation()" type="text" placeholder="Enter location.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
+      <input class="form-control" type="text" placeholder="Enter price rate.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
+      <input class="form-control" type="text" placeholder="Enter rated area.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
+      <button type="button" class="btn btn-danger btn-rounded" style="border-radius: 10px;">search</button>
+    </form>
+  </div>
+
+
+
+
 
 
 </div>
- 
+
+
+<br>
+<br>
+<div *ngIf="userlist">
+
+
+
+
+</div>

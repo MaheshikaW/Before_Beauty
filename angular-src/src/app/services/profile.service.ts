@@ -17,4 +17,11 @@ export class ProfileService {
     return this.http.post('http://localhost:3000/profiles/getphotogallery/'+id,{headers:headers})
   .pipe(map(res => res.json()));
   }
+  getSkills(id){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/profiles/getskills/'+id,{headers:headers})
+  .pipe(map(res => res.json()));
+
+  }
 }

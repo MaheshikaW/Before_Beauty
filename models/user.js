@@ -20,7 +20,7 @@ module.exports.AllUsers = function (callback) {
 }
 
 module.exports.Profile = function (id, callback) {
-    let dbquery = "SELECT hairstylist_profile.*,skill.*,address.* FROM hairstylist_profile JOIN has_skill ON hairstylist_profile.Hairstylist_profile_id=has_skill.Hairstylist_profile_id JOIN skill ON has_skill.Skill_id=skill.Skill_id JOIN address ON hairstylist_profile.Hairstylist_profile_id=address.Hairstylist_profile_id WHERE hairstylist_profile.Hairstylist_profile_id='"+id+"'";
+    let dbquery = "SELECT hairstylist_profile.*,address.* FROM hairstylist_profile JOIN has_skill ON hairstylist_profile.Hairstylist_profile_id=has_skill.Hairstylist_profile_id  JOIN address ON hairstylist_profile.Hairstylist_profile_id=address.Hairstylist_profile_id WHERE hairstylist_profile.Hairstylist_profile_id='"+id+"'";
     db.query(dbquery, callback);
 }
 

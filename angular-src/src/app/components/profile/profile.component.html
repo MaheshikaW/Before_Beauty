@@ -134,22 +134,23 @@
             <div class="col-md-4">
 
                 <h3>About Me</h3>
-                <p>{{x.Job_description}}</p>
+                <p>{{x.Job_description}}</p><br>
                 <h3>
                     <i class="fa fa-map-marker"></i>&nbsp; Location</h3>
-                <p>{{x.City}},&nbsp; {{x.Street}}</p>
+                <p>{{x.City}},&nbsp; {{x.Street}}</p><br>
 
                 <h3>My Skills</h3>
-                <div *ngFor="let skill of x.skills;let i=index">
+                <div *ngFor="let skill of skilllist">
 
-                    {{x.skills[i].Skill}}</div>
-            </div>
+                    {{skill.Skill}}</div>
+                  
+            </div><br>
             <div class="col-md-2" style="margin-left: 70px;">
                 <h3>My Experience</h3>
-                <p>{{x.Experience}}</p>
+                <p>{{x.Experience}}</p><br>
 
                 <h3>My Price Per Hour</h3>
-                <p>{{x.Price}}&nbsp;$</p>
+                <p>{{x.Price|currency}}&nbsp;</p><br>
                 <h3>Contact Me</h3>
                 <p>658467</p>
             </div>
@@ -158,18 +159,17 @@
     </div>
     <br>
     <br>
-    <br>
-    <br>
+    
    
 
     
 </div>
-<div class="row" style="margin-left: 45px;margin-bottom: 5%;width: 100%;">
+<div class="row" style="margin-left: 45px;margin-bottom: 5%;width: 100%;box-shadow:5px;">
 
 
     
 
-        <h3 >My Works</h3>
+        <h3 >My Works</h3><br><br>
 <section class="text-center my-5">
 
         <!-- Section heading -->
@@ -185,8 +185,8 @@
             <!-- Collection card -->
             <div class="card collection-card z-depth-1-half">
               <!-- Card image -->
-              <div class="view zoom">
-                <img src="{{photo.Photo_path}}" class="img-fluid" alt="">
+              <div class="view zoom ">
+                <img src="{{photo.Photo_path}}" alt="thumbnail" class="img-thumbnail">
                 <div class="stripe dark">
                   <a>
                    
@@ -194,7 +194,7 @@
                 </div>
               </div>
               <!-- Card image -->
-            </div>
+            </div><br><br>
             <!-- Collection card -->
           </div>
           <!-- Grid column -->

@@ -18,6 +18,7 @@ router.get('/allusers', (req, res, next) => {
                 userObj['First_name'] = userlist[0].First_name
                 userObj['Last_name'] = userlist[0].Last_name;
                 userObj['Job_description'] = userlist[0].Job_description;
+                userObj['image_path'] = userlist[0].image_path;
                 userObj['Rating'] = userlist[0].Rating;
                 userskill['Skill_id'] = userlist[0].Skill_id;
                 userskill['Skill'] = userlist[0].Skill;
@@ -38,6 +39,7 @@ router.get('/allusers', (req, res, next) => {
                         userObj['First_name'] = userlist[i].First_name;
                         userObj['Last_name'] = userlist[i].Last_name;
                         userObj['Job_description'] = userlist[i].Job_description;
+                        userObj['image_path'] = userlist[0].image_path;
                         userObj['Rating'] = userlist[i].Rating;
                         userskill['Skill_id'] = userlist[i].Skill_id;
                         userskill['Skill'] = userlist[i].Skill;
@@ -77,62 +79,14 @@ router.post('/profile/:id', (req, res, next) => {
     User.Profile(id, (err, userlist) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
-        } else {
-            if (userlist.length > 1) {
-                userList = [];
-                userObj = {};
-                userskill = {};
-                userObj['Hairstylist_profile_id'] = userlist[0].Hairstylist_profile_id;
-                userObj['First_name'] = userlist[0].First_name
-                userObj['Last_name'] = userlist[0].Last_name;
-                userObj['Job_description'] = userlist[0].Job_description;
-                userObj['Experience'] = userlist[0].Experience;
-                userObj['Rating'] = userlist[0].Rating;
-                userObj['City'] = userlist[0].City;
-                userObj['Street'] = userlist[0].Street;
-                userskill['Skill_id'] = userlist[0].Skill_id;
-                userskill['Skill'] = userlist[0].Skill;
-                userObj['skills'] = [];
-                userObj['skills'].push(userskill);
-                userList.push(userObj);
-                var userListCount = 0;
-                for (var i = 1; i < userlist.length; i++) {
-                    if (userlist[i].Hairstylist_profile_id == userList[userListCount].Hairstylist_profile_id) {
-                        userskill = {};
-                        userskill['Skill_id'] = userlist[i].Skill_id;
-                        userskill['Skill'] = userlist[i].Skill;
-                        userObj['skills'].push(userskill);
-                    } else {
-                        userObj = {};
-                        userskill = {};
-                        userObj['Hairstylist_profile_id'] = userlist[i].Hairstylist_profile_id;
-                        userObj['First_name'] = userlist[i].First_name;
-                        userObj['Last_name'] = userlist[i].Last_name;
-                        userObj['Job_description'] = userlist[i].Job_description;
-                        userObj['Rating'] = userlist[i].Rating;
-                        userObj['Street'] = userlist[0].Street;
-                        userObj['City'] = userlist[0].City;
-                        userskill['Skill_id'] = userlist[i].Skill_id;
-                        userskill['Skill'] = userlist[i].Skill;
-                        userObj['skills'] = [];
-                        userObj['skills'].push(userskill);
-                        userList.push(userObj);
-                        userListCount += 1;
-
-
-                    }
-
-                }
-                res.json({ success: true, userlist: userList });
-            } else {
-                res.json({ success: true, userlist: userlist });
-            }
-
-
-
         }
+        else {
+            res.json({ success: true, userlist: userlist });
+        }
+
+
     });
-     
+
 });
 
 router.post('/usersbyskill/:skill', (req, res, next) => {
