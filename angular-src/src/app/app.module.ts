@@ -12,7 +12,6 @@ import {SearchService} from './services/search.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrimarysearchComponent } from './components/primarysearch/primarysearch.component';
-
 import { FullCalendarModule } from 'ng-fullcalendar';
  
 

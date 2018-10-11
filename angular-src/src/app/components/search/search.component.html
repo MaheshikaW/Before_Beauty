@@ -7,11 +7,11 @@
       <br>
       <br>
       <div class="state-container-dropdown">
-        <div *ngIf="Show">
+      
           <div *ngFor="let x of skilllist" class="state">
             {{x.Skill}}
           </div>
-        </div>
+      
 
 
       </div>
@@ -152,7 +152,7 @@
         <!-- Button -->
 
         <a class="btn btn-success btn-sm" style="margin-left: 2px;">Hire Me</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="red-text " style="text-decoration: underline" (click)="onShowProfile(x.Hairstylist_profile_id)">Details</a>
+        <a class="red-text " style="text-decoration: underline; margin-left: 100px;" (click)="onShowProfile(x.Hairstylist_profile_id)">Details</a>
 
 
 

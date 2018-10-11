@@ -30,6 +30,6 @@ module.exports.AllSkills = function (callback) {
     db.query(dbquery, callback);
 }
 module.exports.UsersBySkill = function (skill, callback) {
-    let dbquery = "SELECT * FROM skill WHERE Skill= '" + skill + "'";
+    let dbquery = "SELECT hairstylist_profile.*,skill.*,address.* FROM hairstylist_profile JOIN has_skill ON hairstylist_profile.Hairstylist_profile_id=has_skill.Hairstylist_profile_id JOIN skill ON has_skill.Skill_id=skill.Skill_id JOIN address ON hairstylist_profile.Hairstylist_profile_id=address.Hairstylist_profile_id WHERE skill.Skill= '" + skill + "'";
     db.query(dbquery, callback);
 }

@@ -34,13 +34,130 @@
 
 
 </div>
+<div class="col-md-12 result">
+  <div *ngIf="userlist">
+
+    <div class="card card-cascade narrower col-md-4" style="width: 400px;border-radius: 10px; margin-left: 40px;display:inline-block; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+      *ngFor="let x of userlist">
+
+      <!-- Card image -->
+      <div class="view zoom">
+        <img src="{{x.image_path}}" style="width: 250px;height:200px;  margin-left: 20px;"
+          class="img-fluid" alt="">
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body card-body-cascade">
+
+        <!-- Label -->
+        <a class="pink-text pb-2 pt-1" href="">
+          <i class="fa fa-user"></i> {{x.First_name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="black-text pb-4 pt-1">{{x.City}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="blue-text pb-2 pt-1"  style="margin-left: 100px;">
+          {{x.Skill}}</a>
+
+        <div *ngIf="x.Rating ==1">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
 
 
-<br>
-<br>
-<div *ngIf="userlist">
+
+        <div *ngIf="x.Rating ==1.5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+
+
+        <div *ngIf="x.Rating ==2">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
 
 
 
 
+        <div *ngIf="x.Rating ==2.5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+
+        </div>
+
+        <div *ngIf="x.Rating ==3">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+
+
+        <div *ngIf="x.Rating ==3.5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+        </div>
+
+        <div *ngIf="x.Rating ==4">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+
+        <div *ngIf="x.Rating ==4.5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+        </div>
+
+        <div *ngIf="x.Rating ==5">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+
+
+
+        <!-- Text -->
+
+        <p class="card-text">{{x.Job_description}}</p>
+
+
+
+
+        <!-- Button -->
+
+        <a class="btn btn-success btn-sm" style="margin-left: 2px;">Hire Me</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="red-text " style="text-decoration: underline; margin-left: 100px;" (click)="onShowProfile(x.Hairstylist_profile_id)">Details</a>
+
+
+
+      </div>
+    </div>
+  </div>
+  
 </div>
+
+
+<br>
+<br>
