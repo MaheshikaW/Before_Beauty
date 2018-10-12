@@ -44,7 +44,7 @@
 
       <!-- Card image -->
       <div class="view zoom">
-        <img src="{{x.image_path}}" style="width: 250px;height:200px;  margin-left: 20px;"
+        <img src="{{x.image_path}}" style="width: 270px;height:200px;  margin-left: 20px;"
           class="img-fluid" alt="">
       </div>
 
@@ -53,11 +53,10 @@
 
         <!-- Label -->
         <a class="pink-text pb-2 pt-1" href="">
-          <i class="fa fa-user"></i> {{x.First_name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="black-text pb-4 pt-1">{{x.City}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="blue-text pb-2 pt-1"  style="margin-left: 100px;">
-          {{x.skills[0].Skill}}</a>
-
+          <i class="fa fa-user"></i> {{x.First_name}} </a><br>
+          <a class="grey-text pb-2 pt-1" href=""><i class="fa fa-map-marker"></i> {{x.City}}</a> 
+ 
+        
         <div *ngIf="x.Rating ==1">
           <i class="fa fa-star"></i>
           <i class="fa fa-star-o"></i>
@@ -143,7 +142,9 @@
         <!-- Text -->
 
         <p class="card-text">{{x.Job_description}}</p>
-
+        <a class="blue-text pb-2 pt-1"  >
+            {{x.skills[0].Skill}}</a>
+  <br>
 
 
 

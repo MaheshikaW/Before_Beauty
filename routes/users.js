@@ -19,6 +19,7 @@ router.get('/allusers', (req, res, next) => {
                 userObj['Last_name'] = userlist[0].Last_name;
                 userObj['Job_description'] = userlist[0].Job_description;
                 userObj['image_path'] = userlist[0].image_path;
+                userObj['City'] = userlist[0].City;
                 userObj['Rating'] = userlist[0].Rating;
                 userskill['Skill_id'] = userlist[0].Skill_id;
                 userskill['Skill'] = userlist[0].Skill;
@@ -40,6 +41,8 @@ router.get('/allusers', (req, res, next) => {
                         userObj['Last_name'] = userlist[i].Last_name;
                         userObj['Job_description'] = userlist[i].Job_description;
                         userObj['image_path'] = userlist[0].image_path;
+                        userObj['City'] = userlist[0].City;
+                        userObj['Street'] = userlist[0].Street;
                         userObj['Rating'] = userlist[i].Rating;
                         userskill['Skill_id'] = userlist[i].Skill_id;
                         userskill['Skill'] = userlist[i].Skill;
@@ -69,8 +72,42 @@ router.get('/allskills', (req, res, next) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
         } else {
-            console.log(skilllist);
+            
             res.json({ success: true, skilllist: skilllist });
+        }
+    });
+})
+router.get('/alllocations', (req, res, next) => {
+
+    User.AllLocations((err, locationlist) => {
+        if (err) {
+            res.json({ success: false, msg: 'Failed to make get request' });
+        } else {
+            
+            res.json({ success: true, locationlist:locationlist });
+        }
+    });
+})
+
+router.get('/allrates', (req, res, next) => {
+
+    User.AllRates((err, ratelist) => {
+        if (err) {
+            res.json({ success: false, msg: 'Failed to make get request' });
+        } else {
+            console.log(ratelist)
+            res.json({ success: true, ratelist:ratelist });
+        }
+    });
+})
+router.get('/usersbyfilters/:skill,location,price,rate', (req, res, next) => {
+
+    User.AllFilteredUsers(skill,location,price,rate,(err, ratelist) => {
+        if (err) {
+            res.json({ success: false, msg: 'Failed to make get request' });
+        } else {
+            console.log(userlist)
+            res.json({ success: true, userlist:userlist });
         }
     });
 })
@@ -78,56 +115,61 @@ router.post('/profile/:id', (req, res, next) => {
     const id = req.params.id;
     User.Profile(id, (err, userlist) => {
         if (err) {
-            res.json({ success: false, msg: 'Failed to make get request' });}
-            else {
-                if (userlist.length >= 1) {
-                    userList = [];
-                    userObj = {};
-                    userskill = {};
-                    userObj['Hairstylist_profile_id'] = userlist[0].Hairstylist_profile_id;
-                    userObj['First_name'] = userlist[0].First_name
-                    userObj['Last_name'] = userlist[0].Last_name;
-                    userObj['Job_description'] = userlist[0].Job_description;
-                    userObj['image_path'] = userlist[0].image_path;
-                    userObj['Rating'] = userlist[0].Rating;
-                    userskill['Skill_id'] = userlist[0].Skill_id;
-                    userskill['Skill'] = userlist[0].Skill;
-                    userObj['skills'] = [];
-                    userObj['skills'].push(userskill);
-                    userList.push(userObj);
-                    var userListCount = 0;
-                    for (var i = 1; i < userlist.length; i++) {
-                        if (userlist[i].Hairstylist_profile_id == userList[userListCount].Hairstylist_profile_id) {
-                            userskill = {};
-                            userskill['Skill_id'] = userlist[i].Skill_id;
-                            userskill['Skill'] = userlist[i].Skill;
-                            userObj['skills'].push(userskill);
-                        } else {
-                            userObj = {};
-                            userskill = {};
-                            userObj['Hairstylist_profile_id'] = userlist[i].Hairstylist_profile_id;
-                            userObj['First_name'] = userlist[i].First_name;
-                            userObj['Last_name'] = userlist[i].Last_name;
-                            userObj['Job_description'] = userlist[i].Job_description;
-                            userObj['image_path'] = userlist[0].image_path;
-                            userObj['Rating'] = userlist[i].Rating;
-                            userskill['Skill_id'] = userlist[i].Skill_id;
-                            userskill['Skill'] = userlist[i].Skill;
-                            userObj['skills'] = [];
-                            userObj['skills'].push(userskill);
-                            userList.push(userObj);
-                            userListCount += 1;
-    
-    
-                        }
-    
-                    }
-                    res.json({ success: true, userlist: userList });
+            res.json({ success: false, msg: 'Failed to make get request' });
         }
         else {
-            res.json({ success: true, userlist: userlist });
+            if (userlist.length >= 1) {
+                userList = [];
+                userObj = {};
+                userskill = {};
+                userObj['Hairstylist_profile_id'] = userlist[0].Hairstylist_profile_id;
+                userObj['First_name'] = userlist[0].First_name
+                userObj['Last_name'] = userlist[0].Last_name;
+                userObj['Job_description'] = userlist[0].Job_description;
+                userObj['image_path'] = userlist[0].image_path;
+                userObj['City'] = userlist[0].City;
+                userObj['Street'] = userlist[0].Street;
+                userObj['Rating'] = userlist[0].Rating;
+                userskill['Skill_id'] = userlist[0].Skill_id;
+                userskill['Skill'] = userlist[0].Skill;
+                userObj['skills'] = [];
+                userObj['skills'].push(userskill);
+                userList.push(userObj);
+                var userListCount = 0;
+                for (var i = 1; i < userlist.length; i++) {
+                    if (userlist[i].Hairstylist_profile_id == userList[userListCount].Hairstylist_profile_id) {
+                        userskill = {};
+                        userskill['Skill_id'] = userlist[i].Skill_id;
+                        userskill['Skill'] = userlist[i].Skill;
+                        userObj['skills'].push(userskill);
+                    } else {
+                        userObj = {};
+                        userskill = {};
+                        userObj['Hairstylist_profile_id'] = userlist[i].Hairstylist_profile_id;
+                        userObj['First_name'] = userlist[i].First_name;
+                        userObj['Last_name'] = userlist[i].Last_name;
+                        userObj['Job_description'] = userlist[i].Job_description;
+                        userObj['image_path'] = userlist[0].image_path;
+                        userObj['City'] = userlist[0].City;
+                        userObj['Street'] = userlist[0].Street;
+                        userObj['Rating'] = userlist[i].Rating;
+                        userskill['Skill_id'] = userlist[i].Skill_id;
+                        userskill['Skill'] = userlist[i].Skill;
+                        userObj['skills'] = [];
+                        userObj['skills'].push(userskill);
+                        userList.push(userObj);
+                        userListCount += 1;
+
+
+                    }
+
+                }
+                res.json({ success: true, userlist: userList });
+            }
+            else {
+                res.json({ success: true, userlist: userlist });
+            }
         }
-    }
 
     });
 
@@ -139,7 +181,7 @@ router.post('/usersbyskill/:skill', (req, res, next) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
         } else {
-            console.log(userlist);
+           
             res.json({ success: true, userlist: userlist });
         }
     });

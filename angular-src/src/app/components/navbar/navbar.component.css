@@ -9,7 +9,9 @@ a{
  h4{
      font-family: serif;
      color: white;
+     font-weight: bold;
  }
  .fa-scissors{
      color: black;
+     font-weight: normal;
  }

@@ -26,10 +26,26 @@ module.exports.Profile = function (id, callback) {
 
 
 module.exports.AllSkills = function (callback) {
-    let dbquery = 'SELECT * FROM skill';
+    let dbquery = 'SELECT Skill FROM skill';
     db.query(dbquery, callback);
 }
+
+module.exports.AllLocations = function (callback) {
+    let dbquery = 'SELECT DISTINCT City,Street FROM address';
+    db.query(dbquery, callback);
+}
+module.exports.AllRates = function (callback) {
+    let dbquery = 'SELECT DISTINCT Rating FROM Hairstylist_profile';
+    db.query(dbquery, callback);
+}
+
 module.exports.UsersBySkill = function (skill, callback) {
     let dbquery = "SELECT hairstylist_profile.*,skill.*,address.* FROM hairstylist_profile JOIN has_skill ON hairstylist_profile.Hairstylist_profile_id=has_skill.Hairstylist_profile_id JOIN skill ON has_skill.Skill_id=skill.Skill_id JOIN address ON hairstylist_profile.Hairstylist_profile_id=address.Hairstylist_profile_id WHERE skill.Skill= '" + skill + "'";
     db.query(dbquery, callback);
+}
+module.exports.AllFilteredUsers = function (skill,location,rate,price, callback) {
+    let dbquery = "SELECT hairstylist_profile.*,skill.*,address.* FROM hairstylist_profile JOIN has_skill ON hairstylist_profile.Hairstylist_profile_id=has_skill.Hairstylist_profile_id JOIN skill ON has_skill.Skill_id=skill.Skill_id JOIN address ON hairstylist_profile.Hairstylist_profile_id=address.Hairstylist_profile_id WHERE skill.Skill= '" + skill + "'";
+    let dbquery = dbquery + "and hairstylist_profile.Rating='"+rate+"'";
+    db.query(dbquery, callback);
+
 }
