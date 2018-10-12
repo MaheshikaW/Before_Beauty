@@ -140,9 +140,9 @@
                 <p>{{x.City}},&nbsp; {{x.Street}}</p><br>
 
                 <h3>My Skills</h3>
-                <div *ngFor="let skill of skilllist">
+                <div *ngFor="let skill of x.skills;let i=index">
 
-                    {{skill.Skill}}</div>
+                        {{x.skills[i].Skill}}</div>
                   
             </div><br>
             <div class="col-md-2" style="margin-left: 70px;">
@@ -156,7 +156,10 @@
             </div>
             <div class="col-md-4"><h3>My Calender</h3>
           
-            
+            <div class="calender" style="width: 200px;">
+               
+
+            </div>
             </div>
         </div>
     </div>

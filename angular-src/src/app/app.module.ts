@@ -12,8 +12,12 @@ import {SearchService} from './services/search.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrimarysearchComponent } from './components/primarysearch/primarysearch.component';
-import { FullCalendarModule } from 'ng-fullcalendar';
- 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 
@@ -24,6 +28,7 @@ const appRoutes:Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'profile/:id',component:ProfileComponent},
   {path:'primarysearch/:skill',component:PrimarysearchComponent},
+  {path:'calender',component:CalendarComponent},
 
  
 
@@ -37,10 +42,12 @@ const appRoutes:Routes = [
     AppComponent,
     NavbarComponent,
     HomeComponent,
+   
     SearchComponent,
     FooterComponent,
     ProfileComponent,
     PrimarysearchComponent,
+    CalendarComponent,
 
 
   
@@ -49,10 +56,15 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     HttpModule,
-    FullCalendarModule,
+  
     FormsModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
     
   ],
   providers: [SearchService],

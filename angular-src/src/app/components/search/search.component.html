@@ -2,21 +2,19 @@
   <!-- Search form -->
   <div>
     <form class="form-inline" (submit)="Search()">
-      <input class="form-control" [(ngModel)]="skill" (click)="toggleDropDown()" name="skill" type="text" placeholder="Enter specialized area.."
-        aria-label="Search" style="width: 500px;margin-left: 100px;border-radius: 15px;">
+      <input class="form-control" [(ngModel)]="skill" (click)="toggleDropDown()" list="allskills" name="skill" type="text" placeholder="Enter specialized area.."
+        aria-label="Search" style="width: 500px;margin-left: 100px;border-radius: 15px;"/>
       <br>
       <br>
-      <div class="state-container-dropdown">
-      
-          <div *ngFor="let x of skilllist" class="state">
-            {{x.Skill}}
-          </div>
-      
-
-
-      </div>
+      <datalist id="allskills" *ngFor ="let x of skilllist">
+        <span  *ngFor ="let x of skilllist">
+        <option value={{x.Skill}}> </option>
+          </span>
+      </datalist>
+     
       <input type="submit" style="border-radius:10px; " class="btn btn-danger" value="search">
     </form>
+
   </div>
   <br>
   <br>

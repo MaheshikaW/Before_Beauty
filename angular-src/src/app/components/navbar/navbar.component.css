@@ -5,3 +5,11 @@ a{
     background:rgb(202, 158, 199); color:#000;
     width: 90px;
  }
+
+ h4{
+     font-family: serif;
+     color: white;
+ }
+ .fa-scissors{
+     color: black;
+ }
