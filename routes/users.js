@@ -95,7 +95,7 @@ router.get('/allrates', (req, res, next) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
         } else {
-            console.log(ratelist)
+        
             res.json({ success: true, ratelist:ratelist });
         }
     });
