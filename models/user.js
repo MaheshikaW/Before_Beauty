@@ -15,7 +15,6 @@ db.connect((err) => {
 
 module.exports.AllUsers = function (callback) {
     let dbquery = "SELECT hairstylist_profile.*,skill.*,address.* FROM hairstylist_profile JOIN has_skill ON hairstylist_profile.Hairstylist_profile_id=has_skill.Hairstylist_profile_id JOIN skill ON has_skill.Skill_id=skill.Skill_id JOIN address ON hairstylist_profile.Hairstylist_profile_id=address.Hairstylist_profile_id ORDER BY hairstylist_profile.Hairstylist_profile_id ASC";
-    console.log('inside model');
     db.query(dbquery, callback);
 }
 

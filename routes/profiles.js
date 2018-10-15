@@ -10,7 +10,6 @@ router.post('/getphotogallery/:id', (req, res, next) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
         } else {
-            console.log(photolist);
             res.json({ success: true, photolist: photolist });
         }
     });
@@ -25,7 +24,7 @@ router.post('/getskills/:id', (req, res, next) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
         } else {
-            console.log(skilllist);
+            
             res.json({ success: true, skilllist: skilllist });
         }
     });

@@ -39,3 +39,9 @@ position: absolute;
 .fa-star-o{
  color: #ffb000;
 }
+h2{
+    font-family: sans-serif;
+    color: gray;
+    margin-left: 20%;
+    margin-top: 0%;
+}

@@ -1,19 +1,36 @@
-var assert = require('chai').assert;
-var app = require('../app');
-var chai = require('chai');
-var chaiHttp = require('chai-http');
-var should = chai.should();
+process.env.NODE_ENV = 'test';
+
+
+
+
+let chai = require('chai');
+let chaiHttp = require('chai-http');
+let server = require('../app');
+let should = chai.should();
+
 
 chai.use(chaiHttp);
 
-
-describe('Blobs', function() {
-    it('should list ALL blobs on /blobs GET',function(done) {
-        chai.request(server)
-          .get('/')
-          .end(function(err, res){
-            res.should.have.status(200);
-            done();
-          });
-      });
+describe('Books', () => {
+    beforeEach((done) => {
+        User.remove({}, (err) => { 
+           done();           
+        });        
     });
+  describe('/GET book', () => {
+      it('it should GET all the books', (done) => {
+        chai.request(server)
+            .get('/user')
+            .end((err, res) => {
+                  res.should.have.status(200);
+                  res.body.should.be.a('array');
+                  res.body.length.should.be.eql(0);
+              done();
+            });
+      });
+  });
+});
+  /*});
+  * Test the /POST route
+  */
+

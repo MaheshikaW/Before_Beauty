@@ -13,6 +13,7 @@ describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
   let debugElement: DebugElement;
+  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,8 +30,7 @@ describe('SearchComponent', () => {
 
  
   it('should have a a tag of `+ More options`', () => {
-    fixture = TestBed.createComponent(SearchComponent);
-    component = fixture.componentInstance;
+    
     expect(debugElement.query(By.css('a')).nativeElement.innerText).toBe('+ More options');
     });
 });

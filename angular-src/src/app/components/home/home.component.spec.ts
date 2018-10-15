@@ -14,6 +14,7 @@ describe('SearchComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
   let debugElement: DebugElement;
   let htmlElement :HTMLElement;
+
   const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
   
 
@@ -29,9 +30,15 @@ describe('SearchComponent', () => {
     component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
+  it('should create', () => {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+    expect(component).toBeTruthy();
+    });
 
- 
+   
 
+  
 
 });
 
