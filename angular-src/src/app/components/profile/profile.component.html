@@ -133,34 +133,28 @@
         <div class="row" style="margin-left: 40px;">
             <div class="col-md-4">
 
-                <h3>About Me</h3>
+                <h3><span class="badge cyan">About Me</span></h3>
                 <p>{{x.Job_description}}</p><br>
-                <h3>
-                    <i class="fa fa-map-marker"></i>&nbsp; Location</h3>
+                <h3><span class="badge cyan">
+                    <i class="fa fa-map-marker"></i>&nbsp; Location</span></h3>
                 <p>{{x.City}},&nbsp; {{x.Street}}</p><br>
 
-                <h3>My Skills</h3>
+                <h3 ><span class="badge cyan">My Skills</span></h3>
                 <div *ngFor="let skill of x.skills;let i=index">
 
                         {{x.skills[i].Skill}}</div>
                   
             </div><br>
             <div class="col-md-2" style="margin-left: 70px;">
-                <h3>My Experience</h3>
+                <h3 ><span class="badge cyan">My Experience</span></h3>
                 <p>{{x.Experience}}</p><br>
 
-                <h3>My Price Per Hour</h3>
+                <h3 ><span class="badge cyan">My Price Per Hour</span></h3>
                 <p>{{x.Price|currency}}&nbsp;</p><br>
-                <h3>Contact Me</h3>
-                <p>658467</p>
+                <h3 > <span class="badge cyan">Contact Me</span></h3>
+                <p>{{x.Contact_number}}</p>
             </div>
-            <div class="col-md-4"><h3>My Calender</h3>
-          
-            <div class="calender" style="width: 200px;">
-               
-
-            </div>
-            </div>
+           
         </div>
     </div>
     <br>
@@ -175,7 +169,7 @@
 
     
 
-        <h3 >My Works</h3><br><br>
+<h3 ><span class="badge cyan">My works</span></h3><br><br>
 <section class="text-center my-5">
 
         <!-- Section heading -->

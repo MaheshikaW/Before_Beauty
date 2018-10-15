@@ -71,10 +71,10 @@ export class SearchService {
     return this.http.post('http://localhost:3000/users/usersbyskill/' + location, { headers: headers })
       .pipe(map(res => res.json()));
   }
-  getFilteredUsers(skill,rate,price,location){
+  getFilteredUsers(searchParameters){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/usersbyfilters/' +skill+location+rate+price,{ headers: headers })
+    return this.http.post('http://localhost:3000/users/usersbyfilters',searchParameters,{ headers: headers })
       .pipe(map(res => res.json()));
   }
 
