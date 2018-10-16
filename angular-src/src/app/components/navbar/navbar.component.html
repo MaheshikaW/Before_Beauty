@@ -29,16 +29,9 @@
                 <a class="nav-link" href="#" style="color:black;font-weight: normal;" >&nbsp;Login</a>
             </li>&nbsp;&nbsp;
 
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    style="color:black;font-weight: normal;">Services</a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" [routerLink] = "['/search']"  href="#">Hairstylists</a>
-                    <a class="dropdown-item" href="#">Salons</a>
-
-                </div>
-            </li>&nbsp;&nbsp;
+            <li class="nav-item">
+                    <a class="nav-link" href="#"  [routerLink]="['/search']" style="color:black;font-weight: normal;" >&nbsp;Hairstylists</a>
+                </li>
 
         </ul>
         <!-- Links -->

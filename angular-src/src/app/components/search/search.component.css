@@ -45,3 +45,36 @@ h2{
     margin-left: 20%;
     margin-top: 0%;
 }
+.jumbotron{
+    margin-top: 60px;
+    height: 290px;
+
+}
+.red-text{
+    text-decoration: underline; 
+    margin-left: 100px;
+   
+}
+.card {
+    width: 390px;
+    border-radius: 10px; 
+    margin-left: 40px;
+    margin-bottom: 5px;
+    display:inline-block; 
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.img-fluid{
+    width: 480px;
+    height:250px;  
+    margin-left: 20px;
+    border-radius: 5px;
+   
+}
+btn green{
+    margin-left: 0%;
+}
+.form1{
+    margin-left: 6%;
+    font-family: cursive;
+    font-size: 20px;
+}

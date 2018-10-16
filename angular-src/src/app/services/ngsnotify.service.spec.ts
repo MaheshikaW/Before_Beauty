@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+/**import { TestBed } from '@angular/core/testing';
 
 import { NgsnotifyService } from './ngsnotify.service';
 
@@ -9,4 +9,4 @@ describe('NgsnotifyService', () => {
     const service: NgsnotifyService = TestBed.get(NgsnotifyService);
     expect(service).toBeTruthy();
   });
-});
+});*/

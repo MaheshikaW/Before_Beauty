@@ -1,36 +1,21 @@
 <br>
 <br>
-
-
 <div *ngIf="userlist">
     <div *ngFor="let x of userlist">
         <div class="card mb-3 text-center ">
             <div class="card-body">
-                <!--Grid row-->
                 <div class="row">
-
-                    <!--Grid column-->
                     <div class="col-md-4 offset-md-1 mx-3 my-3">
-                        <!--Featured image-->
                         <div class="view  overlay">
                             <img src="{{x.image_path}}" alt="avatar mx-auto white" class="rounded-circle img-fluid">
-
-
                         </div>
-
                     </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-
                     <div class="col-md-7 text-left ml-3 mt-3">
-                        <!--Excerpt-->
                         <a href="" class="black-text">
                             <h2>Hi, I'm </h2>
                         </a>
                         <a href="" class="black-text" style="font-weight: bold;font-family: sans-serif; font-size: 900px;">
                             <h2 class="font-bold pb-1"> {{x.First_name}}&nbsp;{{x.Last_name}}</h2>
-
                         </a>
                         <div class="view zoom">
                             <div *ngIf="x.Rating ==1">
@@ -41,8 +26,6 @@
                                 <i class="fa fa-star-o"></i>
                             </div>
 
-
-
                             <div *ngIf="x.Rating ==1.5">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-half-o"></i>
@@ -50,7 +33,6 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-
 
                             <div *ngIf="x.Rating ==2">
                                 <i class="fa fa-star"></i>
@@ -60,16 +42,12 @@
                                 <i class="fa fa-star-o"></i>
                             </div>
 
-
-
-
                             <div *ngIf="x.Rating ==2.5">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-half-o"></i>
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
-
                             </div>
 
                             <div *ngIf="x.Rating ==3">
@@ -79,7 +57,6 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-
 
                             <div *ngIf="x.Rating ==3.5">
                                 <i class="fa fa-star"></i>
@@ -114,16 +91,10 @@
                         </div>
                         <hr>
                         <button type="button" class="btn btn-outline-black waves-effect">Hire Me Now </button>
-
-
-
                     </div>
-                    <!--Grid column-->
                 </div>
-                <!--Grid row-->
             </div>
         </div>
-        <!--News card-->
         <br>
         <br>
         <br>
@@ -132,82 +103,76 @@
         <br>
         <div class="row" style="margin-left: 40px;">
             <div class="col-md-4">
-
-                <h3><span class="badge purple lighten-4">About Me</span></h3>
-                <p>{{x.Job_description}}</p><br>
-                <h3><span class="badge purple lighten-4">
-                    <i class="fa fa-map-marker"></i>&nbsp; Location</span></h3>
-                <p>{{x.City}},&nbsp; {{x.Street}}</p><br>
-
-                <h3 ><span class="badge purple lighten-4">My Skills</span></h3>
+                <h3>
+                    <span class="badge purple lighten-4">About Me</span>
+                </h3>
+                <p>{{x.Job_description}}</p>
+                <br>
+                <h3>
+                    <span class="badge purple lighten-4">
+                        <i class="fa fa-map-marker"></i>&nbsp; Location</span>
+                </h3>
+                <p>{{x.City}},&nbsp; {{x.Street}}</p>
+                <br>
+                <h3>
+                    <span class="badge purple lighten-4">My Skills</span>
+                </h3>
                 <div *ngFor="let skill of x.skills;let i=index">
-
-                        {{x.skills[i].Skill}}</div>
-                  
-            </div><br>
+                    {{x.skills[i].Skill}}</div>
+            </div>
+            <br>
             <div class="col-md-2" style="margin-left: 70px;">
-                <h3 ><span class="badge purple lighten-4">My Experience</span></h3>
-                <p>{{x.Experience}}</p><br>
-
-                <h3 ><span class="badge purple lighten-4">My Price Per Hour</span></h3>
-                <p>{{x.Price|currency}}&nbsp;</p><br>
-                <h3 > <span class="badge purple lighten-4">Contact Me</span></h3>
+                <h3>
+                    <span class="badge purple lighten-4">My Experience</span>
+                </h3>
+                <p>{{x.Experience}}</p>
+                <br>
+                <h3>
+                    <span class="badge purple lighten-4">My Price Per Hour</span>
+                </h3>
+                <p>{{x.Price|currency}}&nbsp;</p>
+                <br>
+                <h3>
+                    <span class="badge purple lighten-4">Contact Me</span>
+                </h3>
                 <p>{{x.Contact_number}}</p>
             </div>
-           
         </div>
     </div>
     <br>
     <br>
-    
-   
-
-    
 </div>
 <div class="row" style="margin-left: 50px;margin-bottom: 5%;width: 100%;box-shadow:5px;">
-
-
-    
-
-<h3 ><span class="badge purple lighten-4">My works</span></h3><br><br>
-<section class="text-center my-5">
-
-        <!-- Section heading -->
-        
-     
-      
-      
-        <!-- Grid row -->
-        <div *ngIf="photolist" class="row">
-      
-          <!-- Grid column -->
-          <div *ngFor="let photo of photolist" class="col-lg-3 col-md-6 mb-sm-0 mb-4">
-            <!-- Collection card -->
-            <div class="card collection-card z-depth-1-half">
-              <!-- Card image -->
-              <div class="view zoom ">
-                <img src="{{photo.Photo_path}}" alt="thumbnail" class="img-thumbnail">
-                <div class="stripe dark">
-                  <a>
-                   
-                  </a>
+<h3>
+        <span class="badge purple lighten-4">My works</span>
+    </h3>
+    <br>
+    <br>
+    <section class="text-center my-5">
+<div *ngIf="photolist" class="row">
+<div *ngFor="let photo of photolist" class="col-lg-3 col-md-6 mb-sm-0 mb-4">
+              <div class="card collection-card z-depth-1-half">
+                    <div class="view zoom ">
+                        <img src="{{photo.Photo_path}}" alt="thumbnail" class="img-thumbnail">
+                       
+                    </div>
+            
                 </div>
-              </div>
-              <!-- Card image -->
-            </div><br><br>
-            <!-- Collection card -->
-          </div>
-          <!-- Grid column -->
-      
+                <br>
+                <br>
+                
+            </div>
        
-       
-  
-      
+
+
+
+
+
         </div>
-        <!-- Grid row -->
-      
-      </section>
-      <!-- Section: Products v.4 -->
+        
+
+    </section>
+ 
 
 
 
@@ -215,4 +180,4 @@
 
 
 
-    </div>
+</div>

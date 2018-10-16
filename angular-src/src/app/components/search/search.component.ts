@@ -22,12 +22,15 @@ export class SearchComponent implements OnInit {
   rate:String;
   price:String;
   location:String;
-
+  
 
   constructor(private router: Router,
     private ngsnotifyService:NgsnotifyService,
     private SearchService: SearchService,
-     ) { }
+    
+     ) { 
+      
+     }
 
   ngOnInit() {
       this.ShowAllStylists();
