@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../../services/search.service';
-import {ProfileService} from '../../services/profile.service';
+import { ProfileService } from '../../services/profile.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
@@ -9,25 +9,24 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
   id: string;
   userlist = [];
-  photolist=[];
-  skilllist=[];
+  photolist = [];
+  skilllist = [];
 
 
-  constructor(private SearchServie: SearchService,private ProfileService:ProfileService, private router: Router, private route: ActivatedRoute) {
-
+  constructor(private SearchServie: SearchService, private ProfileService: ProfileService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = params['id'];
-      //console.log(this.id);
+      this.id = params['id'];//profile id of hairstylist
     });
+
     this.SearchServie.getProfile(this.id).subscribe(profile => {
       this.userlist = profile.userlist;
-      console.log(this.id);
     },
       err => {
         console.log(err);
@@ -35,28 +34,25 @@ export class ProfileComponent implements OnInit {
 
       });
 
+    //get photoes of hairstylist protfolio
+    this.ProfileService.getPhotoGallery(this.id).subscribe(profile => {
+      this.photolist = profile.photolist;
 
-      this.ProfileService.getPhotoGallery(this.id).subscribe(profile => {
-        this.photolist = profile.photolist;
-        
-      },
-        err => {
-          console.log(err);
-          return false;
-  
-        });
+    },
+      err => {
+        console.log(err);
+        return false;
 
-        this.ProfileService.getSkills(this.id).subscribe(profile => {
-          this.skilllist = profile.skilllist;
-          
-        },
-          err => {
-            console.log(err);
-            return false;
-    
-          });
+      });
+    //get skills of hairstylist
+    this.ProfileService.getSkills(this.id).subscribe(profile => {
+      this.skilllist = profile.skilllist;
 
+    },
+      err => {
+        console.log(err);
+        return false;
 
+      });
   }
-
 }

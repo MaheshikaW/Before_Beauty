@@ -3,9 +3,8 @@ const router = express.Router();
 const User = require('../models/user');
 const bodyParser = require('body-parser');
 
-
+//get request for getting all user details.
 router.get('/allusers', (req, res, next) => {
-
     User.AllUsers((err, userlist) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
@@ -50,56 +49,40 @@ router.get('/allusers', (req, res, next) => {
                         userObj['skills'].push(userskill);
                         userList.push(userObj);
                         userListCount += 1;
-
-
                     }
-
                 }
                 res.json({ success: true, userlist: userList });
             } else {
                 res.json({ success: true, userlist: userlist });
             }
-
-
-
         }
     });
-
 })
+//get request for all skills
 router.get('/allskills', (req, res, next) => {
-
     User.AllSkills((err, skilllist) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
         } else {
-            
+
             res.json({ success: true, skilllist: skilllist });
         }
     });
 })
-router.get('/alllocations', (req, res, next) => {
 
+//get request for all locations
+router.get('/alllocations', (req, res, next) => {
     User.AllLocations((err, locationlist) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
         } else {
-            
-            res.json({ success: true, locationlist:locationlist });
+            res.json({ success: true, locationlist: locationlist });
         }
     });
 })
 
-router.get('/allrates', (req, res, next) => {
 
-    User.AllRates((err, ratelist) => {
-        if (err) {
-            res.json({ success: false, msg: 'Failed to make get request' });
-        } else {
-        
-            res.json({ success: true, ratelist:ratelist });
-        }
-    });
-})
+//get request for advanced serach
 router.post('/usersbyfilters', (req, res, next) => {
     var skill = req.body.skill;
     var location = req.body.location;
@@ -159,15 +142,16 @@ router.post('/usersbyfilters', (req, res, next) => {
                         userList.push(userObj);
                         userListCount += 1;
                     }
-
                 }
-                res.json({ success: true, userlist: userList });    
+                res.json({ success: true, userlist: userList });
             } else {
                 res.json({ success: true, userlist: userlist });
             }
         }
     });
 })
+
+//post request for getting  profile details
 router.post('/profile/:id', (req, res, next) => {
     const id = req.params.id;
     User.Profile(id, (err, userlist) => {
@@ -175,7 +159,7 @@ router.post('/profile/:id', (req, res, next) => {
             res.json({ success: false, msg: 'Failed to make get request' });
         }
         else {
-            if (userlist.length >= 1) {
+            if (userlist.length >= 1) { // creating a skill array for the insert skills of one user
                 userList = [];
                 userObj = {};
                 userskill = {};
@@ -209,12 +193,12 @@ router.post('/profile/:id', (req, res, next) => {
                         userObj['First_name'] = userlist[i].First_name;
                         userObj['Last_name'] = userlist[i].Last_name;
                         userObj['Job_description'] = userlist[i].Job_description;
-                        userObj['Experience'] = userlist[0].Experience;
-                        userObj['image_path'] = userlist[0].image_path;
-                        userObj['Price'] = userlist[0].Price;
-                        userObj['Contact_number'] = userlist[0].Contact_number;
-                        userObj['City'] = userlist[0].City;
-                        userObj['Street'] = userlist[0].Street;
+                        userObj['Experience'] = userlist[i].Experience;
+                        userObj['image_path'] = userlist[i].image_path;
+                        userObj['Price'] = userlist[i].Price;
+                        userObj['Contact_number'] = userlist[i].Contact_number;
+                        userObj['City'] = userlist[i].City;
+                        userObj['Street'] = userlist[i].Street;
                         userObj['Rating'] = userlist[i].Rating;
                         userskill['Skill_id'] = userlist[i].Skill_id;
                         userskill['Skill'] = userlist[i].Skill;
@@ -222,10 +206,7 @@ router.post('/profile/:id', (req, res, next) => {
                         userObj['skills'].push(userskill);
                         userList.push(userObj);
                         userListCount += 1;
-
-
                     }
-
                 }
                 res.json({ success: true, userlist: userList });
             }
@@ -233,18 +214,16 @@ router.post('/profile/:id', (req, res, next) => {
                 res.json({ success: true, userlist: userlist });
             }
         }
-
     });
-
 });
 
+//post request for primary search.
 router.post('/usersbyskill/:skill', (req, res, next) => {
     const skill = req.params.skill;
     User.UsersBySkill(skill, (err, userlist) => {
         if (err) {
             res.json({ success: false, msg: 'Failed to make get request' });
         } else {
-           
             res.json({ success: true, userlist: userlist });
         }
     });

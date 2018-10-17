@@ -3,6 +3,7 @@
 <div *ngIf="userlist">
     <div *ngFor="let x of userlist">
         <div class="card mb-3 text-center ">
+            <!--card for profile heading-->
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-1 mx-3 my-3">
@@ -18,6 +19,7 @@
                             <h2 class="font-bold pb-1"> {{x.First_name}}&nbsp;{{x.Last_name}}</h2>
                         </a>
                         <div class="view zoom">
+                            <!--star rates-->
                             <div *ngIf="x.Rating ==1">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
@@ -101,6 +103,7 @@
         <br>
         <br>
         <br>
+        <!--profile details-->
         <div class="row" style="margin-left: 40px;">
             <div class="col-md-4">
                 <h3>
@@ -143,41 +146,23 @@
     <br>
 </div>
 <div class="row" style="margin-left: 50px;margin-bottom: 5%;width: 100%;box-shadow:5px;">
-<h3>
+    <h3>
         <span class="badge purple lighten-4">My works</span>
     </h3>
     <br>
     <br>
     <section class="text-center my-5">
-<div *ngIf="photolist" class="row">
-<div *ngFor="let photo of photolist" class="col-lg-3 col-md-6 mb-sm-0 mb-4">
-              <div class="card collection-card z-depth-1-half">
+        <div *ngIf="photolist" class="row">
+            <div *ngFor="let photo of photolist" class="col-lg-3 col-md-6 mb-sm-0 mb-4">
+                <div class="card collection-card z-depth-1-half">
                     <div class="view zoom ">
                         <img src="{{photo.Photo_path}}" alt="thumbnail" class="img-thumbnail">
-                       
                     </div>
-            
                 </div>
                 <br>
                 <br>
-                
+
             </div>
-       
-
-
-
-
-
         </div>
-        
-
     </section>
- 
-
-
-
-
-
-
-
 </div>

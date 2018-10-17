@@ -1,7 +1,8 @@
 <div class="jumbotron">
   <div>
     <label class="form1">Find hairstylists for your need..</label>
-    <form class="form-inline" (submit)="Search()">
+    <!--primary search form-->
+    <form class="form-inline" (submit)="search()">
       <input class="form-control" [(ngModel)]="skill" (click)="toggleDropDown()" list="allskills" name="skill" type="text" placeholder="Enter specialized area.."
         aria-label="Search" style="width: 500px;margin-left: 100px;border-radius: 15px;" />
       <br>
@@ -19,7 +20,8 @@
   <div class="collapse multi-collapse" id="advsearch">
     <a style="margin-left: 100px;font-weight: bold;">+ More options</a>
     <div>
-      <form class="form-inline" (submit)="AdvancedSearch()">
+      <!--advanced search form-->
+      <form class="form-inline" (submit)="advancedSearch()">
         <input class="form-control" [(ngModel)]="location" (click)="toggleDropDown()" list="alllocations" name="location" type="text"
           placeholder="Enter location.." aria-label="Search" style="width: 300px;margin-left: 100px;border-radius: 15px;">&nbsp;
         <br>
@@ -53,12 +55,13 @@
         </datalist>
         <input type="submit" style="border-radius:10px; " class="btn btn-danger" value="search">
       </form>
+
     </div>
   </div>
 </div>
 <div class="col-md-12 result">
   <div *ngIf="userlist">
-    <!--card-->
+    <!--searching result card-->
     <div class="card card-cascade narrower col-md-4" *ngFor="let x of userlist">
       <div class="view zoom">
         <img src="{{x.image_path}}" class="img-fluid" alt="">
@@ -115,6 +118,8 @@
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa fa-star-half-o"></i>
+          <i class="fa fa-star-o"></i>
+          
         </div>
 
         <div *ngIf="x.Rating ==4">
